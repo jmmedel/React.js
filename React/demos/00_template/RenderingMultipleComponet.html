@@ -10,7 +10,16 @@
 </head>
 <body>
 
-    
+    <div id="container"></div>
+
+    <script type="text/babel">
+        var BuckysComponent = React.createClass({
+            render: function() {
+                return (<h2>This is a simple componentss</h2>);
+            }
+        });
+        ReactDOM.render(<BuckysComponent />, document.getElementById('container'));
+    </script>
 
 </body>
 </html>
