@@ -26,7 +26,7 @@
            
             render: function(){
                 return (
-                    <div className= "CommentContainer">
+                    <div className= "commentContainer">
                         <div className="commentText"> Text of Whatever </div>
                         <button onClick={this.Edit} className="button-primary"> Edit </button>
                         <button onClick={this.Remove} className="button-danger"> Remove </button> 
@@ -39,7 +39,10 @@
        ReactDOM.render(
         <div className="board">
         <Comment> Hey now </Comment>
-        </div>, document.getElementById('container'));
+        <Comment> Beans  </Comment>
+        <Comment> Tuna </Comment>
+        </div> 
+        ,document.getElementById('container'));
        
 
     </script>
