@@ -15,12 +15,44 @@
     <script type="text/babel">
 
        
-       var Bacon = React.create
-        ReactDOM.render(
-            <h2>Welcome to React!</h2>,
-            document.getElementById('container')
-        );
-       
+     
+       var CheckBox = React.createClass({
+
+          getInitialState: function(){
+              return {checked: true}
+            },
+            
+            handlechecked: function ()
+            {
+                this.setState({checked: !this.state.checked})
+            },
+
+            render: function(){
+                var msg;
+                if(this.state.checked){
+                    msg = 'checked'
+                }
+                else {
+                    msg = 'unchecked'
+                }
+
+                return (
+                    <div>
+                        <input type="checkbox" onChange={this.handlechecked} defaultChecked = {this.state.checked} />
+                        <h3> Checkbox is {msg}</h3>
+                    </div>
+                );
+
+            }
+
+       });
+
+       // Get the <> Get here using props.children <>
+       ReactDOM.render(
+        <CheckBox />
+        ,document.getElementById('container'));
+
+     
 
     </script>
 
