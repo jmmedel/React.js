@@ -17,15 +17,26 @@
     <script type="text/babel">
 
        var Comment = React.createClass({
-           Edit:function(){
-               alert('Editing comment');
+           getInitialState: function()
+           {
+               return {editing:false}
            },
+
+           Edit:function(){
+               this.setState({editing:true});
+           },
+
            Remove:function(){
                alert('Removeing comment');
            },
+
+           Save:function(){
+               this.setState({editing:false});
+           },
+
+           renderNormal: function(){
            
-            render: function(){
-                return (
+            return (
                     <div className= "commentContainer">
                         <div className="commentText"> {this.props.children} </div>
                         <button onClick={this.Edit} className="button-primary"> Edit </button>
@@ -33,6 +44,27 @@
 
                     </div>
                 );
+            
+           },
+
+           renderForm: function(){
+           
+            return (
+                    <div className= "commentContainer">
+                        <textarea defaultValue= {this.props.children}></textarea>
+                        <button onClick={this.Save} className="button-primary"> Save </button>
+                    </div>
+                );
+            
+           },
+
+            render: function(){
+               if(this.state.editing){
+                   return this.renderForm();
+               }
+               else{
+                   return this.renderNormal();
+               }
             }
        });
        // Get the <> Get here using props.children <>
