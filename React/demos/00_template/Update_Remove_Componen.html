@@ -27,12 +27,13 @@
            },
 
            Remove:function(){
-               alert('Removeing comment');
+               
+               this.props.deletecomments(this.props.index);
            },
 
            Save:function(){
-               var val = this.refs.newtext.value;
-               console.log('newcomment ' + val);
+               
+               this.props.updatecomments(this.refs.newText.value, this.props.index);
                this.setState({editing:false});
            },
 
@@ -98,7 +99,7 @@
 
            eachComment: function(text,i){
             return (
-                <Comment key={i} index={i}>
+                <Comment key={i} index={i} updatecomments={this.updateComment} deletecomments={this.removeComment}>
                 {text}
                 </Comment>
                 );
